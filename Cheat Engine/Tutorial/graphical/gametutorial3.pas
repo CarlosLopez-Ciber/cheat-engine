@@ -86,6 +86,11 @@ implementation
 
 uses registry;
 
+resourcestring
+  rsWellDone = 'well done';
+  rsPaused = '!PAUSED!';
+  rsStep3Info = 'Step 3:'#13#10'Mark all platforms green to'#13#10'unlock the door'#13#10' '#13#10'Beware: Enemies are 1 hit kill'#13#10'        (and bad losers)'#13#10' '#13#10' '#13#10'Have fun!'#13#10' '#13#10'Hint: There are multiple solutions'#13#10' e.g: Find collisiton detect with '#13#10'      enemies, or teleport, or fly'#13#10'      or ....'#13#10;
+
 function TDoor.isinside(_x,_y: single): boolean;
 begin
   result:=(_x>x - w/2) and
@@ -436,7 +441,7 @@ begin
   if (pplayer<>nil) and (not pplayer.exploding) and (door.locked=false) and door.isinside(pplayer.x,pplayer.y) then
   begin
     ticking:=false;
-    showmessage('well done');
+    showmessage(rsWellDone);
     with tregistry.create do
     begin
       if OpenKey('\Software\Cheat Engine\GTutorial', true) then
@@ -473,7 +478,7 @@ begin
     pausescreen.color:=clRED;
     pausescreen.bcolor:=clWhite;
     pausescreen.font.Size:=18;
-    pausescreen.text:='!PAUSED!';
+    pausescreen.text:=rsPaused;
   end;
   result:=true;
 end;
@@ -494,20 +499,7 @@ begin
   info.bcolor:=clWhite;
   info.backgroundAlpha:=190;
   info.font.Size:=9;
-  info.text:='Step 3:'#13#10+
-             'Mark all platforms green to'#13#10+
-             'unlock the door'#13#10+
-             ' '#13#10+
-             'Beware: Enemies are 1 hit kill'#13#10+
-             '        (and bad losers)'#13#10+
-             ' '#13#10+
-             ' '#13#10+
-             'Have fun!'#13#10+
-             ' '#13#10+
-             'Hint: There are multiple solutions'#13#10+
-             ' e.g: Find collisiton detect with '#13#10+
-             '      enemies, or teleport, or fly'#13#10+
-             '      or ....'#13#10;
+  info.text:=rsStep3Info;
 
   info.OnClick:=@HideInfo;
   result:=true;

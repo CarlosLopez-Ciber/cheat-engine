@@ -104,6 +104,17 @@ var
     begin
       //ParamStrUTF8(0) is said not to work properly in linux, but I've tested it
 
+      if pos('gtutorial', LowerCase(ExtractFileName(ParamStrUTF8(0)))) = 1 then
+      begin
+        Result := Application.Location+'languages' + DirectorySeparator + LangID + DirectorySeparator + 'gtutorial'+LCEXT;
+        if FileExistsUTF8(Result) then exit;
+
+        Result := Application.Location+'languages' + DirectorySeparator + LangID + DirectorySeparator + 'gtutorial-x86_64'+LCEXT;
+        if FileExistsUTF8(Result) then exit;
+
+        Result := Application.Location+'languages' + DirectorySeparator + LangID + DirectorySeparator + 'gtutorial-i386'+LCEXT;
+        if FileExistsUTF8(Result) then exit;
+      end;
 
       Result := Application.Location+'languages' + DirectorySeparator + LangID + DirectorySeparator + 'tutorial'+LCEXT;
       if FileExistsUTF8(Result) then exit;

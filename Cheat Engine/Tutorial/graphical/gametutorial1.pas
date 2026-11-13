@@ -52,6 +52,12 @@ implementation
 
 uses registry;
 
+resourcestring
+  rsAmmoTillReload = 'Ammo till reload:'#13#10'%d';
+  rsReloading = '<RELOADING>';
+  rsWellDone = 'well done';
+  rsStep1Info = 'Step 1:'#13#10'Every 5 shots you have to reload,'#13#10'after which the target will heal'#13#10'Try to find a way to destroy the target'#13#10' '#13#10'(Click to hide)';
+
 function TGame1.KeyHandler(TGamePanel: TObject; keventtype: integer; Key: Word; Shift: TShiftState):boolean;
 var
   x: boolean;
@@ -95,7 +101,7 @@ begin
           inc(shotsfired);
           lastshot:=ct;
 
-          status.text:=format('Ammo till reload:'#13#10'%d',[5-shotsfired]);
+          status.text:=format(rsAmmoTillReload,[5-shotsfired]);
 
           if shotsfired=5 then  //this ends up being extremely shitty giving the player hope he can win by timning it right. (not gonna happen lol)
           begin
@@ -108,7 +114,7 @@ begin
               target.shielded:=true;
             end;
 
-            status.text:='<RELOADING>';
+            status.text:=rsReloading;
             shotsfired:=0;
            // showmessage('reloading');
           end;
@@ -172,7 +178,7 @@ begin
     //check if done reloading
     if currenttime>(reloading+2000) then
     begin
-      status.text:='Ammo till reload:'#13#10'5';
+      status.text:=format(rsAmmoTillReload,[5]);
       reloading:=0;
 
       target.health:=100;
@@ -213,7 +219,7 @@ begin
     freeandnil(target);
 
     ticking:=false;
-    showmessage('well done');
+    showmessage(rsWellDone);
 
     with tregistry.create do
     begin
@@ -244,7 +250,7 @@ begin
   info.bcolor:=clWhite;
   info.backgroundAlpha:=190;
   info.font.Size:=9;
-  info.text:='Step 1:'#13#10'Every 5 shots you have to reload,'#13#10'after which the target will heal'#13#10'Try to find a way to destroy the target'#13#10' '#13#10'(Click to hide)';
+  info.text:=rsStep1Info;
 
 
   info.OnClick:=@HideInfo;
@@ -304,7 +310,7 @@ begin
   status.color:=clred;
   status.bcolor:=clgreen;
 
-  status.text:='Ammo till reload:'#13#10'5';
+  status.text:=format(rsAmmoTillReload,[5]);
 
   infobutton:=TStaticGUIObject.create(p,'infobutton.png',0.1,0.1);
   infobutton.rotationpoint.y:=1;  //so the bottom will be the y pos

@@ -12,7 +12,7 @@ uses
   bullet, guidialog, globals, staticguiobject, GameTutorial1, GameBase,
   GameTutorial2, PlayerWithHealth, gameobjectwithhealth, particle,
   movingparticle, gametutorial3, gamecube, platformenemy, LevelSelect,
-  frmHelpUnit
+  frmHelpUnit, cetranslator
   { you can add units after this };
 
 {$R *.res}
@@ -22,6 +22,7 @@ begin
   RequireDerivedFormResource:=True;
   Application.Initialize;
 
+  doTranslation;
   //assetsfolder:=extractfiledir(application.ExeName)+'\badassets\';
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TfrmHelp, frmHelp);

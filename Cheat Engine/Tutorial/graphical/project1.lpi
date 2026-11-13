@@ -14,7 +14,8 @@
       <Icon Value="0"/>
     </General>
     <i18n>
-      <EnableI18N LFM="False"/>
+      <EnableI18N Value="True"/>
+      <OutDir Value="..\..\bin\languages"/>
     </i18n>
     <BuildModes Count="4">
       <Item1 Name="Debug 32" Default="True"/>
@@ -125,7 +126,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="29">
+    <Units Count="30">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -255,6 +256,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmHelpUnit"/>
       </Unit28>
+      <Unit29>
+        <Filename Value="..\cetranslator.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit29>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

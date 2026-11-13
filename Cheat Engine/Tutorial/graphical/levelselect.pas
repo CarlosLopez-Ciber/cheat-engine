@@ -51,6 +51,13 @@ implementation
 
 uses registry;
 
+resourcestring
+  rsYouLoseInstead = 'You lose instead!';
+  rsLevelSelectInfo = 'Level Select:'#13#10'Destroy the target for the specific level.'#13#10' '#13#10'(Click to hide)';
+  rsLevel1 = 'Level 1';
+  rsLevel2 = 'Level 2';
+  rsLevel3 = 'Level 3';
+
 function TLevelSelect.KeyHandler(TGamePanel: TObject; keventtype: integer; Key: Word; Shift: TShiftState):boolean;
 var
   x: boolean;
@@ -61,7 +68,7 @@ var
 begin
   if iskeydown(VK_W) and iskeydown(VK_I) and iskeydown(VK_N) then
   begin
-    showMessage('You lose instead!');
+    showMessage(rsYouLoseInstead);
     ExitProcess(0);
   end;
 
@@ -236,7 +243,7 @@ begin
   info.bcolor:=clWhite;
   info.backgroundAlpha:=190;
   info.font.Size:=9;
-  info.text:='Level Select:'#13#10'Destroy the target for the specific level.'#13#10' '#13#10'(Click to hide)';
+  info.text:=rsLevelSelectInfo;
 
 
   info.OnClick:=@HideInfo;
@@ -310,7 +317,7 @@ begin
   l1text.bcolor:=clBlack;
   l1text.backgroundAlpha:=190;
   l1text.font.Size:=9;
-  l1text.text:='Level 1';
+  l1text.text:=rsLevel1;
 
 
   reg:=tregistry.create;
@@ -336,7 +343,7 @@ begin
       l2text.bcolor:=clBlack;
       l2text.backgroundAlpha:=190;
       l2text.font.Size:=9;
-      l2text.text:='Level 2';
+      l2text.text:=rsLevel2;
     end;
   end;
 
@@ -363,7 +370,7 @@ begin
       l3text.bcolor:=clBlack;
       l3text.backgroundAlpha:=190;
       l3text.font.Size:=9;
-      l3text.text:='Level 3';
+      l3text.text:=rsLevel3;
     end;
   end;
 

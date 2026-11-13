@@ -64,6 +64,13 @@ implementation
 
 uses registry;
 
+resourcestring
+  rsPlayerHealth = 'Player Health: '#13#10'%d';
+  rsEnemyMegabombs = 'You will pay for this!'#13#10'Activating megabombs'#13#10'%d';
+  rsWellDone = 'well done';
+  rsPaused = '!PAUSED!';
+  rsStep2Info = 'Step 2:'#13#10'These two enemies have more health'#13#10'and do more damage to you than'#13#10'you do to them. Destroy them'#13#10' '#13#10'Tip/Warning: Enemy and player are related'#13#10' '#13#10'(Click to hide)';
+
 function TGame2.getNextBulletPos: integer;
 var i: integer;
 begin
@@ -293,7 +300,7 @@ begin
             freeandnil(bullets[j]);
         end;
 
-        status.text:=format('Player Health: '#13#10'%d',[player.health]);
+        status.text:=format(rsPlayerHealth,[player.health]);
 
 
         if bullets[i]<>nil then
@@ -348,7 +355,7 @@ begin
   if enemytext<>nil then
   begin
     megabombsecleft:=ceil(integer((3000-(gametime-enemytextStartTime)))/1000);
-    enemytext.Text:='You will pay for this!'#13#10'Activating megabombs'#13#10''+inttostr(megabombsecleft);
+    enemytext.Text:=format(rsEnemyMegabombs,[megabombsecleft]);
     if megabombsecleft<0 then
     begin
       if target1<>nil then
@@ -394,13 +401,13 @@ begin
 
     target2.health:=200;
 
-    status.text:=format('Player Health: '#13#10'%d',[player.health]);
+    status.text:=format(rsPlayerHealth,[player.health]);
   end;
 
   if (target1=nil) and (target2=nil) then
   begin
     ticking:=false;
-    showmessage('well done');
+    showmessage(rsWellDone);
 
     with tregistry.create do
     begin
@@ -429,7 +436,7 @@ begin
   enemytext.color:=clRED;
   enemytext.bcolor:=clWhite;
   enemytext.font.Size:=18;
-  enemytext.Text:='You will pay for this!'#13#10'Activating megabombs'#13#10''+inttostr(3);
+  enemytext.Text:=format(rsEnemyMegabombs,[3]);
   enemytextStartTime:=gametime;
 end;
 
@@ -450,7 +457,7 @@ begin
     pausescreen.color:=clRED;
     pausescreen.bcolor:=clWhite;
     pausescreen.font.Size:=18;
-    pausescreen.text:='!PAUSED!';
+    pausescreen.text:=rsPaused;
   end;
   result:=true;
 end;
@@ -471,13 +478,7 @@ begin
   info.bcolor:=clWhite;
   info.backgroundAlpha:=190;
   info.font.Size:=9;
-  info.text:='Step 2:'#13#10+
-             'These two enemies have more health'#13#10+
-             'and do more damage to you than'#13#10+
-             'you do to them. Destroy them'#13#10+
-             ' '#13#10+
-             'Tip/Warning: Enemy and player are related'#13#10+
-             ' '#13#10'(Click to hide)';
+  info.text:=rsStep2Info;
 
   info.OnClick:=@HideInfo;
   result:=true;
@@ -565,7 +566,7 @@ begin
   status.color:=clred;
   status.bcolor:=clgreen;
 
-  status.text:='Player Health: '#13#10'100';
+  status.text:=format(rsPlayerHealth,[player.health]);
 
   infobutton:=TStaticGUIObject.create(p,'infobutton.png',0.1,0.1);
   infobutton.rotationpoint.y:=1;  //so the bottom will be the y pos

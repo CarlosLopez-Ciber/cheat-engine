@@ -1,0 +1,209 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gametutorial1.rsammotillreload
+msgctxt "gametutorial1.rsammotillreload"
+msgid ""
+"Ammo till reload:\n"
+"%d"
+msgstr ""
+
+#: gametutorial1.rsreloading
+msgctxt "gametutorial1.rsreloading"
+msgid "<RELOADING>"
+msgstr ""
+
+#: gametutorial1.rsstep1info
+msgctxt "gametutorial1.rsstep1info"
+msgid ""
+"Step 1:\n"
+"Every 5 shots you have to reload,\n"
+"after which the target will heal\n"
+"Try to find a way to destroy the target\n"
+" \n"
+"(Click to hide)"
+msgstr ""
+
+#: gametutorial1.rswelldone
+msgctxt "gametutorial1.rswelldone"
+msgid "well done"
+msgstr ""
+
+#: gametutorial2.rsenemymegabombs
+msgctxt "gametutorial2.rsenemymegabombs"
+msgid ""
+"You will pay for this!\n"
+"Activating megabombs\n"
+"%d"
+msgstr ""
+
+#: gametutorial2.rspaused
+msgctxt "gametutorial2.rspaused"
+msgid "!PAUSED!"
+msgstr ""
+
+#: gametutorial2.rsplayerhealth
+msgctxt "gametutorial2.rsplayerhealth"
+msgid ""
+"Player Health: \n"
+"%d"
+msgstr ""
+
+#: gametutorial2.rsstep2info
+msgctxt "gametutorial2.rsstep2info"
+msgid ""
+"Step 2:\n"
+"These two enemies have more health\n"
+"and do more damage to you than\n"
+"you do to them. Destroy them\n"
+" \n"
+"Tip/Warning: Enemy and player are related\n"
+" \n"
+"(Click to hide)"
+msgstr ""
+
+#: gametutorial2.rswelldone
+msgctxt "gametutorial2.rswelldone"
+msgid "well done"
+msgstr ""
+
+#: gametutorial3.rspaused
+msgctxt "gametutorial3.rspaused"
+msgid "!PAUSED!"
+msgstr ""
+
+#: gametutorial3.rsstep3info
+msgctxt "gametutorial3.rsstep3info"
+msgid ""
+"Step 3:\n"
+"Mark all platforms green to\n"
+"unlock the door\n"
+" \n"
+"Beware: Enemies are 1 hit kill\n"
+"        (and bad losers)\n"
+" \n"
+" \n"
+"Have fun!\n"
+" \n"
+"Hint: There are multiple solutions\n"
+" e.g: Find collisiton detect with \n"
+"      enemies, or teleport, or fly\n"
+"      or ....\n"
+msgstr ""
+
+#: gametutorial3.rswelldone
+msgctxt "gametutorial3.rswelldone"
+msgid "well done"
+msgstr ""
+
+#: levelselect.rslevel1
+msgctxt "levelselect.rslevel1"
+msgid "Level 1"
+msgstr ""
+
+#: levelselect.rslevel2
+msgctxt "levelselect.rslevel2"
+msgid "Level 2"
+msgstr ""
+
+#: levelselect.rslevel3
+msgctxt "levelselect.rslevel3"
+msgid "Level 3"
+msgstr ""
+
+#: levelselect.rslevelselectinfo
+msgctxt "levelselect.rslevelselectinfo"
+msgid ""
+"Level Select:\n"
+"Destroy the target for the specific level.\n"
+" \n"
+"(Click to hide)"
+msgstr ""
+
+#: levelselect.rsyouloseinstead
+msgctxt "levelselect.rsyouloseinstead"
+msgid "You lose instead!"
+msgstr ""
+
+#: tform1.caption
+msgctxt "tform1.caption"
+msgid "Step 1"
+msgstr ""
+
+#: tfrmhelp.caption
+msgctxt "tfrmhelp.caption"
+msgid "Help"
+msgstr ""
+
+#: tfrmhelp.image1.hint
+msgctxt "tfrmhelp.image1.hint"
+msgid "More information like videos for this step and written tutorials"
+msgstr ""
+
+#: unit1.rsbeaten
+msgctxt "unit1.rsbeaten"
+msgid "beaten"
+msgstr ""
+
+#: unit1.rsbeatenintegritycheck
+msgctxt "unit1.rsbeatenintegritycheck"
+msgid ""
+"\n"
+", and you have beaten the integrity check!\n"
+"\n"
+"Really well done!"
+msgstr ""
+
+#: unit1.rsfinishedgames
+msgctxt "unit1.rsfinishedgames"
+msgid "You have %s all 3 'games' %s!"
+msgstr ""
+
+#: unit1.rsintegritycheckerror
+msgctxt "unit1.rsintegritycheckerror"
+msgid " (Integrity check error)"
+msgstr ""
+
+#: unit1.rsselectlevel
+msgctxt "unit1.rsselectlevel"
+msgid "Select Level"
+msgstr ""
+
+#: unit1.rsstep1
+msgctxt "unit1.rsstep1"
+msgid "Step 1"
+msgstr ""
+
+#: unit1.rsstep2
+msgctxt "unit1.rsstep2"
+msgid "Step 2"
+msgstr ""
+
+#: unit1.rsstep3
+msgctxt "unit1.rsstep3"
+msgid "Step 3"
+msgstr ""
+
+#: unit1.rstotalintegritycheckfailure
+msgctxt "unit1.rstotalintegritycheckfailure"
+msgid " (total integrity check failure)"
+msgstr ""
+
+#: unit1.rswelldone
+msgctxt "unit1.rswelldone"
+msgid ". Well done"
+msgstr ""
+
+#: unit1.rswinned
+msgctxt "unit1.rswinned"
+msgid "winned"
+msgstr ""
+
+#: unit1.rsyay
+msgctxt "unit1.rsyay"
+msgid ". yay"
+msgstr ""

@@ -52,7 +52,21 @@ implementation
 
 { TForm1 }
 
-uses registry, md5, frmHelpUnit;
+uses registry, md5, frmHelpUnit, cetranslator;
+
+resourcestring
+  rsIntegrityCheckError = ' (Integrity check error)';
+  rsTotalIntegrityCheckFailure = ' (total integrity check failure)';
+  rsStep1 = 'Step 1';
+  rsStep2 = 'Step 2';
+  rsStep3 = 'Step 3';
+  rsSelectLevel = 'Select Level';
+  rsWinned = 'winned';
+  rsBeaten = 'beaten';
+  rsYay = '. yay';
+  rsWellDone = '. Well done';
+  rsBeatenIntegrityCheck = #13#10', and you have beaten the integrity check!'#13#10#13#10'Really well done!';
+  rsFinishedGames = 'You have %s all 3 ''games'' %s!';
 
 type
   TIntegrityCheckThread=class(tthread)
@@ -205,7 +219,7 @@ var
   s: string;
 begin
   s:=form1.caption;
-  i:=Pos(' (Integrity check error)',s);
+  i:=Pos(rsIntegrityCheckError,s);
   if i>0 then //valid now
   begin
     form1.caption:=copy(form1.caption,1,i);
@@ -216,8 +230,8 @@ procedure TIntegrityCheckThread.invalid;
 var s: string;
 begin
   s:=form1.caption;
-  if Pos(' (Integrity check error)',s)=0 then
-    form1.caption:=form1.caption+' (Integrity check error)';
+  if Pos(rsIntegrityCheckError,s)=0 then
+    form1.caption:=form1.caption+rsIntegrityCheckError;
 end;
 
 procedure TIntegrityCheckThread.docheck;
@@ -313,7 +327,7 @@ begin
     itt.Terminate;
     itt.WaitFor;
     itt.lastcheckwasvalid:=false;
-    form1.caption:=form1.caption+' (total integrity check failure)';
+    form1.caption:=form1.caption+rsTotalIntegrityCheckFailure;
   end;
 
 end;
@@ -328,23 +342,23 @@ var
 begin
   if usedcheats then
   begin
-    s:='winned';
-    s2:='. yay';
+    s:=rsWinned;
+    s2:=rsYay;
   end
   else
   begin
-    s:='beaten';
+    s:=rsBeaten;
 
     IntegrityCheckCheck;
 
     if TIntegrityCheckThread(integrityCheckThread).lastcheckwasvalid then
-      s2:=#13#10', and you have beaten the integrity check!'#13#10#13#10'Really well done!'
+      s2:=rsBeatenIntegrityCheck
     else
-      s2:='. Well done';
+      s2:=rsWellDone;
   end;
 
 
-  showmessage(format('You have %s all 3 ''games'' %s!',[s,s2]));
+  showmessage(format(rsFinishedGames,[s,s2]));
   ExitProcess(0);
 end;
 
@@ -355,7 +369,7 @@ begin
   if currentgame<>nil then
     freeandnil(currentGame);
 
-  caption:='Step 3';
+  caption:=rsStep3;
   currentgame:=TGame3.create(p);
   currentgame.OnWin:=@finishedTutorial;    //todo someday: rpg kinda game, followed by an online 'game' (chatgame more likely)
 
@@ -371,7 +385,7 @@ begin
   if currentgame<>nil then
     freeandnil(currentGame);
 
-  caption:='Step 2';
+  caption:=rsStep2;
   currentgame:=TGame2.create(p);
   currentgame.OnWin:=@startgame3;
   frmHelp.Attach(self,'G2');
@@ -389,7 +403,7 @@ begin
       if currentgame<>nil then
         freeandnil(currentGame);
 
-      Caption:='Step 1';
+      Caption:=rsStep1;
       currentGame:=TGame1.create(p);
       currentGame.OnWin:=@startGame2;
     end;
@@ -423,7 +437,7 @@ begin
     //if reg.ValueExists('This does not count as a solution for tutorial 1') then
     begin
       //level select screen
-      Caption:='Select Level';
+      Caption:=rsSelectLevel;
       currentGame:=TLevelSelect.create(p);
       currentGame.OnWin:=@GameSelect;
     end;
